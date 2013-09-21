@@ -1,8 +1,10 @@
 import SocketServer
+import datetime
 
 PORTNO = 10552
+TIMEOUT = 5
 
-class handler(SocketServer.DatagramRequestHandler):
+class InHandler(SocketServer.DatagramRequestHandler):
 
   def handle(self):
     newmsg = self.rfile.readline().rstrip()
@@ -16,10 +18,17 @@ class handler(SocketServer.DatagramRequestHandler):
     data_tuple = tuple([float(x) for x in data_list[1:]])
     return data_tuple
 
-s = SocketServer.UDPServer(('',PORTNO), handler)
+s = SocketServer.UDPServer(('',PORTNO), InHandler)
 print "Awaiting UDP messages on port %d" % PORTNO
 s.oldmsg = "This is the starting message."
-s.serve_forever()
+s.timeout = TIMEOUT
+while True:
+  time = datetime.datetime.now()
+  s.handle_request()
+  time_2 = datetime.datetime.now()
+  if (time_2 - time).total_seconds() > TIMEOUT:
+    break
 
+print "Closed"
 
 
