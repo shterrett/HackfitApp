@@ -3,6 +3,7 @@ import datetime
 
 PORTNO = 10552
 TIMEOUT = 5
+DATA = []
 
 class InHandler(SocketServer.DatagramRequestHandler):
 
@@ -14,9 +15,9 @@ class InHandler(SocketServer.DatagramRequestHandler):
     self.server.oldmsg = newmsg
 
   def extract_data(self, msg):
-    data_list = msg.split(',')
-    data_tuple = tuple([float(x) for x in data_list[1:]])
-    return data_tuple
+    data = float(msg.split(',')[3])
+    DATA.append(data)
+    return data
 
 s = SocketServer.UDPServer(('',PORTNO), InHandler)
 print "Awaiting UDP messages on port %d" % PORTNO
@@ -30,5 +31,6 @@ while True:
     break
 
 print "Closed"
+print DATA
 
 
