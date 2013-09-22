@@ -1,10 +1,10 @@
 import serial
 
-addr  = '/dev/tty.usbmodemfd121'
+addr  = '/dev/tty.usbmodem1411'
 baud  = 9600
 fname = 'accel.csv'
 fmode = 'ab'
-reps  = 1000
+reps  = 500
 
 def start_collection():
   data = []
