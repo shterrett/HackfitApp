@@ -3,24 +3,20 @@
     <script src="jquery-1.10.2.min.js"></script>
     <script>
       $.get( "http://localhost:8000/index.json", function( data ) {
-        console.log(data);
-        alert( "Data Loaded: " + data );
         $('#reps').text(data.reps);
-        $('#weight').text(data.weight);
+        $('#weight').text((data.weight).toFixed(0) + " lbs");
       });
     </script>
     <style>
-      div {
+      h1 {
         font-size: 5em;
       }
     </style>
   </head>
-  <body>
-    <h1>Reps:</h1>
-    <div id="reps">
-    </div>
-    <h1>Weight:</h1>
-    <div id="weight">
-    </div>
+  <body style="background-color: #f15a1d">
+    <h1 style="background-color: #f15a1d; text-align:center">SimpleLift</h1>
+    <hr style="color:white" width="75%" />
+    <h1>Reps: <span id="reps" /></h1>
+    <h1>Weight: <span id="weight" /></h1>
   </body>
 </html>

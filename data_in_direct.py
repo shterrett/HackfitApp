@@ -4,7 +4,7 @@ addr  = '/dev/tty.usbmodem1411'
 baud  = 9600
 fname = 'accel.csv'
 fmode = 'ab'
-reps  = 500
+reps  = 600
 
 def start_collection():
   data = []
