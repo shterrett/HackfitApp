@@ -1,10 +1,8 @@
-import matplotlib.pyplot as plt
 import numpy
 import scipy.signal as signal
 import csv
 import smooth_curve as smooth
 
-data = []
 
 # with open('data.csv', 'rb') as f:
 #   reader = csv.reader(f)
@@ -19,11 +17,9 @@ data = []
 # 
 #     row_item = row[3]
 #     data.append(float(row_item))
+def find_peaks(data):
+  print len(data)
 
-print len(data)
+  smooth_data = smooth.smoothListGaussian(data, 50)
 
-smooth_data = smooth.smoothListGaussian(data, 50)
-
-print signal.find_peaks_cwt(smooth_data, numpy.array(xrange(10, 20)))
-plt.plot(xrange(0, len(smooth_data)), smooth_data)
-plt.show()
+  print signal.find_peaks_cwt(smooth_data, numpy.array(xrange(10, 20)))
