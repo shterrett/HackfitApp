@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <script src="jquery-1.10.2.min.js"></script>
+    <script>
+      $.get( "http://localhost:8000/index.json", function( data ) {
+        console.log(data);
+        alert( "Data Loaded: " + data );
+        $('#reps').text(data.reps);
+        $('#weight').text(data.weight);
+      });
+    </script>
+    <style>
+      div {
+        font-size: 5em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Reps:</h1>
+    <div id="reps">
+    </div>
+    <h1>Weight:</h1>
+    <div id="weight">
+    </div>
+  </body>
+</html>

@@ -13,7 +13,7 @@ accel_data = get_accel_data(data)
 weight_data = get_weight_data(data)
 smooth_data = smooth_curve.smoothListGaussian(accel_data)
 peaks = find_peaks.find_peaks(smooth_data)
-weight = get_weight.get_weight(weight_dat)
+weight = get_weight.get_weight(weight_data)
 data = { "reps": len(peaks), "weight": weight }
 data_out.start_server(data)
 

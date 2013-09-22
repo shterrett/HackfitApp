@@ -1,6 +1,7 @@
 import sys
 import BaseHTTPServer
 from SimpleHTTPServer import SimpleHTTPRequestHandler
+import json
 
 ServerClass = BaseHTTPServer.HTTPServer
 Protocol = "HTTP/1.0"
@@ -20,5 +21,5 @@ def start_server(data):
 
 def write_data(data):
   file = open('index.json', 'w')
-  file.write(data)
+  file.write(json.dumps(data))
   file.close()
