@@ -2,7 +2,7 @@
   <head>
     <script src="jquery-1.10.2.min.js"></script>
     <script>
-      $.get( "http://localhost:8000/index.json", function( data ) {
+      $.get( "http://192.168.1.10:8000/index.json", function( data ) {
         $('#reps').text(data.reps);
         $('#weight').text((data.weight).toFixed(0) + " lbs");
       });
@@ -11,12 +11,34 @@
       h1 {
         font-size: 5em;
       }
+      body {
+        font-family: sans-serif;
+      }
     </style>
   </head>
   <body style="background-color: #f15a1d">
-    <h1 style="background-color: #f15a1d; text-align:center">SimpleLift</h1>
+    <h1 style="background-color: #f15a1d; text-align:center">SimplyLift</h1>
     <hr style="color:white" width="75%" />
-    <h1>Reps: <span id="reps" /></h1>
+    <h2 style="text-align: center">It is now  
+    <script type="text/javascript">
+    <!--
+    var currentTime = new Date()
+    var hours = currentTime.getHours()
+    var minutes = currentTime.getMinutes()
+    var seconds = currentTime.getSeconds()
+    if (minutes < 10){
+    minutes = "0" + minutes
+    }
+    document.write(hours + ":" + minutes + ":" + seconds)
+    if(hours > 11){
+    document.write("PM")
+    } else {
+    document.write("AM")
+    }
+    //-->
+    </script>
+    </h2>
+        <h1>Reps: <span id="reps" /></h1>
     <h1>Weight: <span id="weight" /></h1>
   </body>
 </html>

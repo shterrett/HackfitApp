@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import data_in_direct
 import smooth_curve
 import find_peaks
@@ -18,8 +17,6 @@ smooth_data = smooth_curve.smoothListGaussian(accel_data, 35)
 peaks = find_peaks.find_peaks(smooth_data)
 weight = get_weight.get_weight(weight_data)
 data = { "reps": len(peaks), "weight": weight }
-plt.plot(xrange(0, len(smooth_data)), smooth_data)
-plt.show()
 print len(peaks)
 print weight
 data_out.start_server(data)

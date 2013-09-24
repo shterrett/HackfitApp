@@ -10,7 +10,7 @@ OutHandler = SimpleHTTPRequestHandler
 def start_server(data):
   write_data(data)
   PORT = 8000
-  server_address = ('127.0.0.1', PORT)
+  server_address = ('0.0.0.0', PORT)
 
   OutHandler.protocol_version = Protocol
   httpd = ServerClass(server_address, OutHandler)
